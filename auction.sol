@@ -40,7 +40,7 @@ contract auction {
     }   
     
     // bidder will send the hash of (public address(to prevent smth similar to a reply attack), value and nonce ) and Pay Deposit fees
-    function bid(bytes32 input) payable PayDeposit public{
+    function commit(bytes32 input) payable PayDeposit public{
         
         // bidding is available  for biddingTimeFrame,commented for TESTING
         //require(block.timestamp < startTime + biddingTimeFrame);       
