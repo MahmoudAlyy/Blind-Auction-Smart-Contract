@@ -4,7 +4,7 @@ A blind auction written in solidity where the winner of the auction is the highe
 
 ## Functions
 ```solidity
-function bid(bytes32 input) payable PayDeposit public
+function commit(bytes32 input) payable PayDeposit public
 ```
 Bidder will send the hash of (public address, value, nonce) to commit his bid. (Bid is available for a certain time frame)  
 
@@ -22,7 +22,7 @@ After revealing time is over anyone can call activateWinner which transfers (val
 
 ## Things to note:
 
-* Why include the puplic address to bid value?  
+* Why include the puplic address in the commitment?  
 To prevent replay attacks.
 If 2 bids have the same value bid the 1st bidder wins.
 So if we didn't add public address and an adversarial could somehow intercept your traffic, send your hash(value,nonce) from his address, then allow your hash to pass, then wait for you to reveal the (value,nonce) and do the same thing ( intercept - reveal your (value,nonce) first - allow your traffic to pass), he is  guaranteed to win the bid against you.
