@@ -18,9 +18,9 @@ contract auction {
     // 2nd highest value / value that the bidder actually pays
     uint256 private winner_actual;
     
-    // bidding and revealing time frames in seconds, unused currently for TESTING purposes
-    uint256 private biddingTimeFrame = 30;
-    uint256 private revealingTimeFrame = 30 ;
+    // bidding and revealing time frames in seconds, currenlty set to 3 days, unused currently for TESTING purposes
+    uint256 private biddingTimeFrame = 259200;
+    uint256 private revealingTimeFrame = 259200 ;
     
     //value payed in deposit by auctionManager to construct the contract & the bidders to bid, currently set as 1 ether 
     uint private depositFees = 1000000000000000000 ;
