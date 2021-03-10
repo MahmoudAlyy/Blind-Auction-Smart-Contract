@@ -120,12 +120,12 @@ contract auction {
     
     function activateWinner() public returns (address){
         
+        // activateWinner after bidding and revealingTimeFrame,commented for TESTING
+        //require(block.timestamp > startTime + biddingTimeFrame + revealingTimeFrame);       
+
         // can only be activated once 
         require (activateWinnerBool == true, "activateWinner can only be called once");
         activateWinnerBool = false;
-        
-        // activateWinner after bidding and revealingTimeFrame,commented for TESTING
-        //require(block.timestamp > startTime + biddingTimeFrame + revealingTimeFrame);       
         
         winner.transfer(winner_bid - winner_actual);
         auctionManager.transfer(winner_actual);
